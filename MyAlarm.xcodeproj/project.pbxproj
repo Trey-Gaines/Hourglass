@@ -35,11 +35,6 @@
 			path = MyAlarm;
 			sourceTree = "<group>";
 		};
-		2DC582EA2DE9EF6800CA8CCD /* MyAlarmTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MyAlarmTests;
-			sourceTree = "<group>";
-		};
 		2DC582F42DE9EF6800CA8CCD /* MyAlarmUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MyAlarmUITests;
@@ -76,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				2DC582DB2DE9EF6700CA8CCD /* MyAlarm */,
-				2DC582EA2DE9EF6800CA8CCD /* MyAlarmTests */,
 				2DC582F42DE9EF6800CA8CCD /* MyAlarmUITests */,
 				2DC582DA2DE9EF6700CA8CCD /* Products */,
 			);
@@ -129,9 +123,6 @@
 			);
 			dependencies = (
 				2DC582E92DE9EF6800CA8CCD /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				2DC582EA2DE9EF6800CA8CCD /* MyAlarmTests */,
 			);
 			name = MyAlarmTests;
 			packageProductDependencies = (
@@ -416,10 +407,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Debug;
@@ -455,10 +447,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Release;
