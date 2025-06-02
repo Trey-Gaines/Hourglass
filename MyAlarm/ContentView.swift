@@ -11,11 +11,12 @@ struct ContentView: View {
     @State private var myTimer = TimerObject()
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 25) {
+            Countdown()
+            HStack {
+                RestartButton()
+                StopButton()
+            }
         }
         .padding()
     }

@@ -14,6 +14,7 @@ struct MyAlarmApp: App {
         WindowGroup {
             ContentView()
                 .preferredColorScheme(other.colorPreference)
+                .environment(other)
         }
     }
 }
