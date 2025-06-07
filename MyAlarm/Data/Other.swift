@@ -13,21 +13,38 @@ import SwiftUI
 class Other {
     var colorPreference: ColorScheme
     var timer: Timer?
-    let currentTime: Date
+    var currentTime = Date()
+    
+    var myTime: String
     
     init() {
-        self.currentTime = Date()
-        let hour = Calendar.current.component(.hour, from: currentTime)
+        let hour = Calendar.current.component(.hour, from: Date())
+        self.myTime = "Getting the current time..."
         
         if hour < 12 {
             self.colorPreference = .light
         } else { self.colorPreference = .dark }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            let now = self.currentTime
-            let formatter = DateFormatter()
-            formatter.timeStyle = .medium
-            print("Current time: \(formatter.string(from: now))")
+        let formatter: DateFormatter = {
+            let df = DateFormatter()
+            df.timeStyle = .medium
+            return df
+        }()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            let now = Date()
+            self.currentTime = now
+            self.myTime = "Current time: \(formatter.string(from: now))"
         }
     }
+    
+    deinit {
+        timer?.invalidate()
+    }
+}
+
+public struct UDKeys {
+    static let running = "running"
+    static let timeLeft = "timeleft"
 }

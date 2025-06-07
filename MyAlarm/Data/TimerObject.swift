@@ -17,6 +17,7 @@ class TimerObject {
     var timer: Timer? = nil
     var timeElapsed = 0
     var isTimerRunning = false
+    var isTimerPaused = false
     
     var remainingTime: Int {
         return (timerLength * 1000) - timeElapsed
@@ -33,18 +34,25 @@ class TimerObject {
         stopTimer()
         timeElapsed = 0
         isTimerRunning = true
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
             if self.isTimerRunning {
-                DispatchQueue.main.async {
-                    if self.remainingTime > 0 {
-                        self.timeElapsed += 100
-                    } else {
-                        self.isTimerRunning = false
-                        self.stopTimer()
-                    }
+                if self.remainingTime > 0 {
+                    self.timeElapsed += 100
+                } else {
+                    self.isTimerRunning = false
+                    self.stopTimer()
                 }
             }
         }
+    }
+    
+    func pauseTimer() {
+        
+    }
+    
+    func resumeTimer() {
+        
     }
     
     func stopTimer() { timer?.invalidate() }
@@ -57,7 +65,7 @@ class TimerObject {
     init() {
         if UserDefaults.standard.object(forKey: Keys.timerFinished) != nil {
             self.exists = UserDefaults.standard.bool(forKey: Keys.timerFinished)
-        } else { self.exists = false }
+        } else { self.exists = false; self.isTimerRunning = false }
         
         if UserDefaults.standard.object(forKey: Keys.timerFinished) != nil {
             self.timerLength = UserDefaults.standard.integer(forKey: Keys.timerFinished)

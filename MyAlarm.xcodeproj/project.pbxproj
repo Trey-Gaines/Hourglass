@@ -23,10 +23,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2DC5835D2DF4822C00CA8CCD /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2DC582D92DE9EF6700CA8CCD /* MyAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC582E72DE9EF6800CA8CCD /* MyAlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC582F12DE9EF6800CA8CCD /* MyAlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DC583442DF4822A00CA8CCD /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2DC583462DF4822A00CA8CCD /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -72,6 +87,7 @@
 			children = (
 				2DC582DB2DE9EF6700CA8CCD /* MyAlarm */,
 				2DC582F42DE9EF6800CA8CCD /* MyAlarmUITests */,
+				2DC583432DF4822A00CA8CCD /* Frameworks */,
 				2DC582DA2DE9EF6700CA8CCD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +102,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2DC583432DF4822A00CA8CCD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DC583442DF4822A00CA8CCD /* WidgetKit.framework */,
+				2DC583462DF4822A00CA8CCD /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,6 +121,7 @@
 				2DC582D52DE9EF6700CA8CCD /* Sources */,
 				2DC582D62DE9EF6700CA8CCD /* Frameworks */,
 				2DC582D72DE9EF6700CA8CCD /* Resources */,
+				2DC5835D2DF4822C00CA8CCD /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
