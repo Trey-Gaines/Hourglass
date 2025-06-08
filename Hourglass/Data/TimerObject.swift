@@ -82,8 +82,9 @@ class TimerObject {
         if UserDefaults.standard.bool(forKey: UDKeys.running) {
             let timeLeft = UserDefaults.standard.integer(forKey: UDKeys.timeLeft)
             if let timeStarted = UserDefaults.standard.object(forKey: UDKeys.timeStarted) as? Date {
-                let timeElapsed = Int(Date().timeIntervalSince(timeStarted))
-                let adjustedTime = max(0, timeLeft - timeElapsed)
+                let elapsed = Int(Date().timeIntervalSince(timeStarted))
+                let adjustedTime = max(0, ((timeLeft * 1000) - elapsed) / 1000)
+                
 
                 if adjustedTime > 0 {
                     self.timerLength = adjustedTime

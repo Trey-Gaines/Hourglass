@@ -36,9 +36,8 @@ struct HourGlassApp: App {
                     guard let startedAt = UserDefaults.standard.object(forKey: UDKeys.timeStarted) as? Date else { print("returned"); return}
                     let wasRunning = UserDefaults.standard.bool(forKey: UDKeys.running)
                     let storedTime = UserDefaults.standard.integer(forKey: UDKeys.timeLeft)
-                    
                     let elapsed = Int(Date().timeIntervalSince(startedAt))
-                    let adjustedTime = max(0, storedTime - elapsed)
+                    let adjustedTime = max(0, ((storedTime * 1000) - elapsed) / 1000)
                     
                     if wasRunning && adjustedTime > 0 {
                         myTimer.timerLength = adjustedTime
