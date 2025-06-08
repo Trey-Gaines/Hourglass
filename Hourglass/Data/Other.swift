@@ -43,8 +43,3 @@ class Other {
         timer?.invalidate()
     }
 }
-
-public struct UDKeys {
-    static let running = "running"
-    static let timeLeft = "timeleft"
-}
